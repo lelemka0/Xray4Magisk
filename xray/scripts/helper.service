@@ -3,12 +3,12 @@ magisk_busybox="/data/adb/magisk/busybox"
 
 bin_name="helper"
 bin_path="/data/xray/bin/${bin_name}"
-data_path="/data/${bin_name}"
+data_path="/data/xray"
 run_path="${data_path}/run"
 pid_file="${run_path}/${bin_name}.pid"
-error_log="${run_path}/error.log"
+error_log="${run_path}/helper.log"
 conf_file="${data_path}/config.json"
-bin_opts="-c ${conf_file}"
+bin_opts=""
 inet_uid="3003"
 
 probe_helper_alive() {
@@ -49,11 +49,11 @@ wait_helper_listen() {
 }
 
 start_service() {
-  export XRAY_LOCATION_ASSET=${data_path}
+  export XRAY_HELPER_CONFIG_PATH=${data_path}
   if probe_helper_alive ; then
     echo "[Info]: ${bin_name} service is running. ( PID: `cat ${pid_file}` )"
     return 0
-  elif [ -f ${conf_file}/proxy.json ] ; then
+  elif [ -f ${conf_file} ] ; then
     echo "[Info]: Starting ${bin_name} service."
     mkdir -p ${run_path}
     chown -R root:inet ${data_path}

@@ -65,19 +65,17 @@ fi
 
 # install helper execute file
 ui_print "- Install helper core $ARCH execute files"
-unzip -j -o "${download_helper_zip}" "geoip.dat" -d /data/xray >&2
-unzip -j -o "${download_helper_zip}" "geosite.dat" -d /data/xray >&2
 unzip -j -o "${download_helper_zip}" "helper" -d /data/xray/bin >&2
-unzip -j -o "${ZIPFILE}" 'helper/scripts/*' -d $MODPATH/scripts >&2
+unzip -j -o "${ZIPFILE}" 'xray/scripts/*' -d $MODPATH/scripts >&2
 unzip -j -o "${ZIPFILE}" 'service.sh' -d $MODPATH >&2
 unzip -j -o "${ZIPFILE}" 'uninstall.sh' -d $MODPATH >&2
 rm "${download_helper_zip}"
 # copy helper data and config
 ui_print "- Copy helper config and data files"
 [ -f /data/xray/config.json ] || \
-unzip -j -o "${ZIPFILE}" "helper/etc/config.json" -d /data/xray >&2
+unzip -j -o "${ZIPFILE}" "xray/etc/config.json" -d /data/xray >&2
 [ -f /data/xray/confs/proxy.json ] || \
-unzip -j -o "${ZIPFILE}" "helper/etc/confs/*" -d /data/xray/confs >&2
+unzip -j -o "${ZIPFILE}" "xray/etc/confs/*" -d /data/xray/confs >&2
 [ -f /data/xray/appid.list] || \
 echo ALL > /data/xray/appid.list
 # generate module.prop
@@ -96,9 +94,10 @@ set_perm_recursive $MODPATH 0 0 0755 0644
 set_perm  $MODPATH/service.sh    0  0  0755
 set_perm  $MODPATH/uninstall.sh    0  0  0755
 set_perm  $MODPATH/scripts/start.sh    0  0  0755
-set_perm  $MODPATH/scripts/helper.inotify    0  0  0755
+set_perm  $MODPATH/scripts/xray.inotify    0  0  0755
 set_perm  $MODPATH/scripts/helper.service    0  0  0755
-set_perm  $MODPATH/scripts/helper.tproxy     0  0  0755
+set_perm  $MODPATH/scripts/xray.service    0  0  0755
+set_perm  $MODPATH/scripts/xray.tproxy     0  0  0755
 set_perm  /data/xray                0  0  0755
 
 ######################
