@@ -1,0 +1,6 @@
+{
+    "port": 8080,
+    "xray": 65534,
+    "data": "/data/xray/helper/jsons",
+    "dir": "/data/xray/helper/xray-webui"
+}

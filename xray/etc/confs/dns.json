@@ -1,0 +1,42 @@
+{
+    "dns": {
+        "hosts": {
+            "doh.opendns.com": "146.112.41.2",
+            "doh.pub": "162.14.21.56",
+            "domain:googleapis.cn": "googleapis.com",
+            "domain:xray": "127.0.0.1"
+        },
+        "servers": [
+            {
+                "address": "https://1.1.1.1/dns-query",
+                "domains": [
+                    "geosite:geolocation-!cn"
+                ]
+            },
+            {
+                "address": "https+local://223.5.5.5/dns-query",
+                "domains": [
+                    "geosite:cn"
+                ],
+                "expectIPs": [
+                    "geoip:cn"
+                ]
+            },
+            {
+                "address": "https+local://doh.pub/dns-query",
+                "domains": [
+                    "geosite:cn"
+                ]
+            },
+            "223.5.5.5",
+            "localhost"
+        ],
+        "tag": "dns-out"
+    },
+    "outbounds": [
+        {
+            "protocol": "dns",
+            "tag": "dns-in"
+        }
+    ]
+}
