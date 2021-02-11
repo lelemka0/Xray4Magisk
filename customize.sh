@@ -84,7 +84,7 @@ echo ALL > /data/xray/appid.list
 ui_print "- Generate module.prop"
 rm -rf $MODPATH/module.prop
 touch $MODPATH/module.prop
-echo "id=helper" > $MODPATH/module.prop
+echo "id=xray4magisk2" > $MODPATH/module.prop
 echo "name=Xray4Magisk2" >> $MODPATH/module.prop
 echo -n "version=Module v2.0.0, Core " >> $MODPATH/module.prop
 echo ${latest_helper_version} >> $MODPATH/module.prop
