@@ -2,7 +2,7 @@
 
 inotify=`realpath $0`
 scripts_dir=`dirname ${inotify}`
-service="${scripts_dir}/xray.service"
+service="${scripts_dir}/helper.service"
 tproxy="${scripts_dir}/xray.tproxy"
 
 events=$1
