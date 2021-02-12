@@ -7,7 +7,7 @@ data_path="/data/${bin_name}"
 run_path="${data_path}/run"
 pid_file="${run_path}/${bin_name}.pid"
 error_log="${run_path}/error.log"
-conf_file="${data_path}/confs"
+conf_file="${data_path}/helper/jsons/confs"
 bin_opts="run -confdir ${conf_file}"
 inet_uid="3003"
 

@@ -11,16 +11,6 @@ monitor_file=$3
 
 start_xray() {
   ${service} start
-  if [ -f /data/xray/appid.list ] ; then
-    ${tproxy} enable
-    settings put global airplane_mode_on 1
-    sleep 1
-    am broadcast -a android.intent.action.AIRPLANE_MODE
-    sleep 1
-    settings put global airplane_mode_on 0
-    sleep 1
-    am broadcast -a android.intent.action.AIRPLANE_MODE
-  fi
 }
 
 stop_xray() {

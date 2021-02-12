@@ -9,7 +9,7 @@ ui_print "- Prepare helper execute environment."
 mkdir -p /data/xray
 mkdir -p /data/xray/run
 mkdir -p /data/xray/bin
-mkdir -p /data/xray/confs
+mkdir -p /data/xray/helper/jsons/confs
 mkdir -p $MODPATH/scripts
 
 download_helper_zip="/data/xray/run/helper.zip"
@@ -74,8 +74,7 @@ rm "${download_helper_zip}"
 ui_print "- Copy helper config and data files"
 [ -f /data/xray/config.json ] || \
 unzip -j -o "${ZIPFILE}" "xray/etc/config.json" -d /data/xray >&2
-[ -f /data/xray/confs/proxy.json ] || \
-unzip -j -o "${ZIPFILE}" "xray/etc/confs/*" -d /data/xray/confs >&2
+unzip -j -o "${ZIPFILE}" "xray/etc/helper/jsons/confs/*" -d /data/xray/helper/jsons/confs >&2
 [ -f /data/xray/appid.list] || \
 echo ALL > /data/xray/appid.list
 # generate module.prop

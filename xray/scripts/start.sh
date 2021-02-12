@@ -3,10 +3,7 @@
 MODDIR=${0%/*}
 
 start_proxy () {
-  ${MODDIR}/helper.service start &> /data/xray/run/service.log && \
-  if [ -f /data/xray/appid.list ] ; then
-    ${MODDIR}/xray.tproxy enable &>> /data/xray/run/service.log &
-  fi
+  ${MODDIR}/helper.service start &> /data/xray/run/service.log
 }
 
 if [ ! -f /data/xray/manual ] ; then
